@@ -1,6 +1,5 @@
 
 const getGeo = async (city: string, API: string): Promise <{lon: number, lat: number}> => {
-    console.log(city);
     const res = await fetch(
       `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${API}`
     );

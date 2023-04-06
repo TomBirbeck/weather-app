@@ -1,5 +1,7 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import getGeo from "../../utils/getLatLong";
+import getWeather from "../../utils/getWeather";
+const API: string = (import.meta.env.VITE_API as string)
 
 interface WeatherDisplayIProps {
     city: string,
@@ -11,22 +13,20 @@ const WeatherDisplay = ({city}: WeatherDisplayIProps) => {
         lon: 0,
         lat: 0,
       });
-      const API: string = (import.meta.env.VITE_APP as string)
 
     const handleGeo = async () => {
         SetGeo(await getGeo(city, API))
+        const coords = await getGeo(city, API)
+        const weather = await getWeather({geo: {...coords}, API })
+        console.log(weather)
     }      
-    useEffect(() => {
-       handleGeo
-    },[city])
-    
-    console.log(geo)
 
     return (
         <div>
             <h1>
                 display
             </h1>
+            <button onClick={handleGeo}>Search</button>
         </div>
     )
 }

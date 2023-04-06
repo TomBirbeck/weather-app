@@ -1,4 +1,3 @@
-
 type CityInputProps = {
     handleChange: (e: { target: { value: string } }) => void;
   };
