@@ -13,7 +13,7 @@ function App() {
   return (
     <div className="App">
       <CityInput handleChange={handleCity}/>
-      <WeatherDisplay/>
+      <WeatherDisplay city={city}/>
     </div>
   )
 }
