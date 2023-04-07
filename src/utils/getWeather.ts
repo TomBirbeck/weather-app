@@ -9,7 +9,6 @@ const getWeather = async ({geo, API}: getWeaterIProps): Promise<any> => {
       `https://api.openweathermap.org/data/2.5/weather?lat=${geo.lat}&lon=${geo.lon}&appid=${API}`
     );
     const data = await res.json();
-    console.log({data})
     return data
   }
 

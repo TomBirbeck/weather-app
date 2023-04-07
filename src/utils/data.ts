@@ -11,3 +11,34 @@ wind : {
 
 }
 }
+
+const images = [
+    {
+    artist: 'Alexandre Saraiva Carniato',
+    image: 'https://www.pexels.com/photo/palm-tree-on-beach-shore-under-blue-sky-and-white-clouds-8386619/'
+},
+{
+    artist: 'Bibhukalyan Acharya',
+    image: 'https://www.pexels.com/photo/selective-focus-photo-of-obalte-green-leafed-plants-during-rain-1463530/'
+},
+{
+    artist: 'Pixabay',
+    image: 'https://www.pexels.com/photo/brown-wooden-house-covered-with-snow-near-pine-trees-45204/' 
+},
+{
+    artist: 'Andrew Beatson',
+    image: 'https://www.pexels.com/photo/asperitas-dark-clouds-in-gloomy-sky-3742711/'
+},
+{
+    artist: 'Pixabay',
+    image: 'https://www.pexels.com/photo/mountain-with-green-leaved-trees-surrounded-by-fog-during-daytime-45222/'
+},
+{
+    artist: 'Pixabay',
+    image: 'https://www.pexels.com/photo/scenic-view-of-pine-trees-and-mountains-against-clear-blue-sky-247657/'
+},
+{
+    artist: 'Greg',
+    image: 'https://www.pexels.com/photo/seashore-scenery-2418664/'
+}
+]
