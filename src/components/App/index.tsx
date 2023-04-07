@@ -3,6 +3,7 @@ import CityInput from '../CityInput'
 import WeatherDisplay from '../WeatherDisplay';
 import getGeo from '../../utils/getLatLong';
 import getWeather from '../../utils/getWeather';
+import Header from '../Header';
 
 const API: string = (import.meta.env.VITE_API as string)
 
@@ -35,7 +36,8 @@ const handleWeather = async () => {
 
 
   return (
-    <div className="flex flex-col items-center justify-center bg-rose-300 h-screen">
+    <div className="flex flex-col gap-1 items-center md:justify-center bg-rose-300 h-screen p-">
+      <Header/>
       <CityInput handleCity={handleCity} handleWeather={handleWeather}/>
       <WeatherDisplay
       temp = {weather.temp}
