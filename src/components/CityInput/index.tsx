@@ -1,10 +1,15 @@
 type CityInputProps = {
-    handleChange: (e: { target: { value: string } }) => void;
+    handleCity: (e: { target: { value: string } }) => void;
+    handleWeather: () => Promise<void>;
   };
 
-const CityInput = ({handleChange}: CityInputProps) =>{
+const CityInput = ({handleCity, handleWeather}: CityInputProps) =>{
+    
     return(
-        <input type='text' onChange={handleChange} placeholder="Enter City"></input>
+        <div>
+            <input type='text' onChange={handleCity} placeholder="Enter City"></input>
+            <button className="border-solid border-black border-2 rounded-md p-1" onClick={handleWeather}>Search</button>
+        </div>
     )
 }
 
