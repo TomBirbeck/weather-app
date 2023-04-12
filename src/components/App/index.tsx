@@ -1,15 +1,16 @@
-import { ChangeEvent, FormEvent, useState } from 'react'
+import { ChangeEvent, FormEvent, useEffect, useState } from 'react'
 import CityInput from '../CityInput'
 import WeatherDisplay from '../WeatherDisplay';
 import getGeo from '../../utils/getLatLong';
 import getWeather from '../../utils/getWeather';
 import Header from '../Header';
+import setBackgroundImage from '../../utils/backGroundImage';
 
 const API: string = (import.meta.env.VITE_API as string)
 
 function App() {
   const [city, setCity] = useState<string>("");
-  const [weatherId, setWeatherId] = useState(0)
+  const [background, setBackground] = useState("rainy");
   const [weather, setWeather] = useState({
     temp: 0,
     feelsLike: 0,
@@ -17,7 +18,7 @@ function App() {
     weather: '',
     description: '',
     windSpeed: 0,
-})
+});
 
 const handleWeather = async (e: FormEvent<HTMLFormElement>) => {
   e.preventDefault()
@@ -32,7 +33,7 @@ const handleWeather = async (e: FormEvent<HTMLFormElement>) => {
         description: data.weather[0].description,
         windSpeed: data.wind.speed 
     })
-    setWeatherId(data.id)
+    setBackground(setBackgroundImage(data.weather[0].id, data.main.temp))
 }      
 
   function handleCity(e: ChangeEvent<HTMLInputElement>) {
@@ -40,9 +41,10 @@ const handleWeather = async (e: FormEvent<HTMLFormElement>) => {
     setCity(e.target.value);
   }
 
-
   return (
-    <div className="flex flex-col gap-1 items-center md:justify-center bg-fog h-screen">
+  <div className="flex flex-col gap-1 items-center md:justify-center h-screen"
+  style={{backgroundImage: (`url('/${background}.jpg')`)}}
+  >
       <Header/>
       <CityInput handleCity={handleCity} handleWeather={handleWeather}/>
       <WeatherDisplay
