@@ -10,7 +10,7 @@ const API: string = (import.meta.env.VITE_API as string)
 
 function App() {
   const [city, setCity] = useState<string>("");
-  const [background, setBackground] = useState("rainy");
+  const [background, setBackground] = useState("cloudy");
   const [weather, setWeather] = useState({
     temp: 0,
     feelsLike: 0,
@@ -43,7 +43,9 @@ const handleWeather = async (e: FormEvent<HTMLFormElement>) => {
 
   return (
   <div className="flex flex-col gap-1 items-center md:justify-center h-screen"
-  style={{backgroundImage: (`url('/${background}.jpg')`)}}
+  style={{backgroundImage: (`url('/${background}.jpg')`),
+  backgroundSize: 'cover'
+}}
   >
       <Header/>
       <CityInput handleCity={handleCity} handleWeather={handleWeather}/>
