@@ -1,3 +1,5 @@
+import { useState } from "react"
+
 type weatherDisplayIprops = {
     temp: number,
     feelsLike: number,
@@ -8,6 +10,7 @@ type weatherDisplayIprops = {
 }
 
 const WeatherDisplay = ({temp, feelsLike, humidity,weather, description, windSpeed}: weatherDisplayIprops) => {
+    const [icon, setIcon] = useState('snowflake')
 
     return (
         <div className="flex flex-col md:flex-row border-solid border-black border-2 rounded-lg bg-none backdrop-blur-sm w-full md:w-1/2 h-3/5 md:h-2/5 p-2">
@@ -19,9 +22,8 @@ const WeatherDisplay = ({temp, feelsLike, humidity,weather, description, windSpe
             <p className="text-xl">Feels like: <span className="font-bold pr-0.5">{Number(feelsLike - 273.15).toFixed(1)}</span>&#8451;</p>
             <p className="text-xl">Wind speed: <span className="font-bold pr-0.5">{windSpeed}</span>mph</p>
             </div>
-            <div>
-                <h3>image</h3>
-                <img></img>
+            <div className="h-10/12 w-10/12 flex justify-center items-center">
+                <img src={`./${icon}.png`} className="h-5/6"/>
             </div>
         </div>
     )
