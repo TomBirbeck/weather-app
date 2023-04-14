@@ -1,6 +1,8 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import setBackgroundImage from "../../utils/backGroundImage"
 
 type weatherDisplayIprops = {
+    id: number,
     temp: number,
     feelsLike: number,
     humidity: number,
@@ -9,8 +11,12 @@ type weatherDisplayIprops = {
     windSpeed: number
 }
 
-const WeatherDisplay = ({temp, feelsLike, humidity,weather, description, windSpeed}: weatherDisplayIprops) => {
-    const [icon, setIcon] = useState('snowflake')
+const WeatherDisplay = ({id, temp, feelsLike, humidity, weather, description, windSpeed}: weatherDisplayIprops) => {
+    const [icon, setIcon] = useState('snowy')
+
+    useEffect(() => {
+        setIcon(setBackgroundImage(id, temp))
+    }, [id])
 
     return (
         <div className="flex flex-col md:flex-row border-solid border-black border-2 rounded-lg bg-none backdrop-blur-sm w-full md:w-1/2 h-3/5 md:h-2/5 p-2">

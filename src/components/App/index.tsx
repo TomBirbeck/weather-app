@@ -12,6 +12,7 @@ function App() {
   const [city, setCity] = useState<string>("");
   const [background, setBackground] = useState("cloudy");
   const [weather, setWeather] = useState({
+    id: 0,
     temp: 0,
     feelsLike: 0,
     humidity: 0,
@@ -26,6 +27,7 @@ const handleWeather = async (e: FormEvent<HTMLFormElement>) => {
     const data = await getWeather({geo: {...coords}, API })
     setWeather({
         ...weather,
+        id: data.weather[0].id,
         temp: data.main.temp,
         feelsLike: data.main.feels_like,
         humidity: data.main.humidity,
@@ -50,6 +52,7 @@ const handleWeather = async (e: FormEvent<HTMLFormElement>) => {
       <Header/>
       <CityInput handleCity={handleCity} handleWeather={handleWeather}/>
       <WeatherDisplay
+      id = {weather.id}
       temp = {weather.temp}
       feelsLike = {weather.feelsLike}
       humidity = {weather.humidity}
