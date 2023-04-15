@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, useEffect, useState } from 'react'
+import { ChangeEvent, FormEvent, useState } from 'react'
 import CityInput from '../CityInput'
 import WeatherDisplay from '../WeatherDisplay';
 import getGeo from '../../utils/getLatLong';
@@ -10,7 +10,7 @@ const API: string = (import.meta.env.VITE_API as string)
 
 function App() {
   const [city, setCity] = useState<string>("");
-  const [background, setBackground] = useState("cloudy");
+  const [background, setBackground] = useState("clear");
   const [weather, setWeather] = useState({
     id: 0,
     temp: 0,

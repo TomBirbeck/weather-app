@@ -1,9 +1,4 @@
-import { ChangeEvent, FormEvent } from "react";
-
-type CityInputProps = {
-    handleCity: (e: ChangeEvent<HTMLInputElement>) => void;
-    handleWeather: (e: FormEvent<HTMLFormElement>) => void;
-  };
+import { CityInputProps } from "../../types"
 
 const CityInput = ({handleCity, handleWeather}: CityInputProps) =>{
     

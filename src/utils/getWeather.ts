@@ -1,10 +1,6 @@
-interface getWeaterIProps {
-  geo: { lon: number; lat: number }, 
-  API : string
-}
+import {getWeatherProps} from '../types'
 
-
-const getWeather = async ({geo, API}: getWeaterIProps): Promise<any> => {
+const getWeather = async ({geo, API}: getWeatherProps): Promise<any> => {
     const res = await fetch(
       `https://api.openweathermap.org/data/2.5/weather?lat=${geo.lat}&lon=${geo.lon}&appid=${API}`
     );
