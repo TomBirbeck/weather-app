@@ -1,6 +1,6 @@
 const Header = () => {
     return (
-        <h1>Your Weather</h1>
+        <h1 className="text-3xl text-bold">Your Weather App</h1>
     )
 }
 

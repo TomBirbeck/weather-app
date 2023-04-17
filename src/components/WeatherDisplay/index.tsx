@@ -29,7 +29,7 @@ const WeatherDisplay = ({id, temp, feelsLike, humidity, weather, description, wi
             <p className="text-xl">Wind speed: <span className="font-bold pr-0.5">{windSpeed}</span>mph</p>
             </div>
             <div className="h-10/12 w-10/12 flex justify-center items-center">
-                <img src={`./${icon}.png`} className="h-5/6"/>
+                <img src={`./${icon}.png`} className="h-5/6 rounded-lg"/>
             </div>
         </div>
     )
