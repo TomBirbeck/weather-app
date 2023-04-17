@@ -9,6 +9,7 @@ import setBackgroundImage from '../../utils/backGroundImage';
 const API: string = (import.meta.env.VITE_API as string)
 
 function App() {
+  const [searched, setSearched] = useState(false)
   const [city, setCity] = useState<string>("");
   const [background, setBackground] = useState("clear");
   const [weather, setWeather] = useState({
@@ -36,6 +37,7 @@ const handleWeather = async (e: FormEvent<HTMLFormElement>) => {
         windSpeed: data.wind.speed 
     })
     setBackground(setBackgroundImage(data.weather[0].id, data.main.temp))
+    setSearched(true)
 }      
 
   function handleCity(e: ChangeEvent<HTMLInputElement>) {
@@ -59,6 +61,7 @@ const handleWeather = async (e: FormEvent<HTMLFormElement>) => {
       weather = {weather.weather}
       description = {weather.description}
       windSpeed = {weather.windSpeed}
+      searched = {searched}
       />
     </div>
   )
