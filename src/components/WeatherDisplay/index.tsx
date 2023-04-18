@@ -20,7 +20,7 @@ const WeatherDisplay = ({id, temp, feelsLike, humidity, weather, description, wi
     }, [id])
 
     return (
-            <div className="border-solid border-black border-2 rounded-lg bg-none backdrop-blur-sm w-full md:w-1/2 h-3/5 md:h-2/5 p-2">
+            <div className="border-solid border rounded-lg bg-none backdrop-blur-sm w-full md:w-1/2 h-3/5 md:h-2/5 p-2">
             {searched ?
                 <div className="flex flex-col md:flex-row h-full">
                 <div className="flex flex-col justify-around h-3/5 md:h-full md:w-3/5">
