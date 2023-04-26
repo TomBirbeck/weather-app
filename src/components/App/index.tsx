@@ -24,7 +24,7 @@ function App() {
 
 const handleWeather = async (e: FormEvent<HTMLFormElement>) => {
   e.preventDefault()
-    const coords = await getGeo(city, API)
+    const coords = await getGeo(city)
     const data = await getWeather({geo: {...coords}, API })
     setWeather({
         ...weather,
